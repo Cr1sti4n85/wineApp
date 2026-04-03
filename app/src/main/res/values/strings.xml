@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">WineApp</string>
+    <string name="text_no_data">Sin datos, intente más tarde</string>
 </resources>
