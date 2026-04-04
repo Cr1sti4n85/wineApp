@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="common_min_space">8dp</dimen>
+    <dimen name="common_default_space">16dp</dimen>
+    <dimen name="common_middle_space">24dp</dimen>
+
+</resources>

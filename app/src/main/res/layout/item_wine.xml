@@ -3,7 +3,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginTop="@dimen/common_min_space"
+    android:layout_marginStart="@dimen/common_min_space"
+    >
 
     <ImageView
         android:id="@+id/imgWine"
@@ -29,6 +32,7 @@
             android:id="@+id/rating"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/common_min_space"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             style="@style/Widget.AppCompat.RatingBar.Small"
@@ -37,26 +41,35 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:padding="@dimen/common_min_space"
+            android:layout_marginTop="@dimen/common_middle_space"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbFavorite"
+            app:layout_constraintTop_toBottomOf="@id/rating"
             android:orientation="vertical"
+            android:background="@drawable/background_item_text"
             >
             <TextView
                 android:id="@+id/tvWine"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textAppearance="?attr/textAppearanceTitleLarge"
                 tools:text="Nombre del vino"
                 />
             <TextView
                 android:id="@+id/tvWinery"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textAppearance="?attr/textAppearanceBodyLarge"
                 tools:text="Bodega"
                 />
             <TextView
                 android:id="@+id/tvLocation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textAppearance="?attr/textAppearanceBodyMedium"
                 tools:text="Ubicación"
                 />
 
