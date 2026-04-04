@@ -57,7 +57,7 @@ class MainActivity : AppCompatActivity() {
         "Carmenere",
         Rating("4.8", "540 ratings"),
         "Italy",
-        "https://images.vivino.com/thumbs/nC9V6L2mQQSq0s-wZLcaxw_pb_x300.png",
+        "https://images.vivino.com/thumbs/00o0kud1xybsc_375x500.jpg",
         1
     ), Wine(
         "Cartuxa",
@@ -72,7 +72,7 @@ class MainActivity : AppCompatActivity() {
             "Merlot",
             Rating("4.8", "540 ratings"),
             "Chile",
-            "https://images.vivino.com/thumbs/nC9V6L2mQQSq0s-wZLcaxw_pb_x300.png",
+            "https://images.vivino.com/thumbs/00o0kud1xybsc_375x500.jpg",
             1
         ),
         Wine(
