@@ -49,6 +49,10 @@ dependencies {
     implementation(libs.glide)
     ksp("com.github.bumptech.glide:ksp:5.0.5")
 
+    //RETROFIT
+    implementation("com.squareup.retrofit2:retrofit:3.0.0")
+    implementation("com.squareup.retrofit2:converter-gson:3.0.0")
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

@@ -5,14 +5,22 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.soracel.wineapp.databinding.ActivityMainBinding
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var adapter: WineListAdapter
     private lateinit var binding: ActivityMainBinding
+
+    private lateinit var service: WineService
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,6 +35,7 @@ class MainActivity : AppCompatActivity() {
 
         setupAdapter()
         setupRecyclerView()
+        setupRetrofit()
     }
 
     private fun setupAdapter() {
@@ -40,9 +49,23 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun setupRetrofit(){
+        val retrofit = Retrofit.Builder()
+            .baseUrl(Constants.BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+
+        service = retrofit.create(WineService::class.java)
+    }
+
     private fun getWines() {
-        val wines = getLocalWines()
-        adapter.submitList(wines)
+        lifecycleScope.launch(Dispatchers.IO) {
+            val wines = service.getWines()
+
+            withContext(Dispatchers.Main){
+                adapter.submitList(wines)
+            }
+        }
     }
 
     private fun getLocalWines() = listOf(Wine(
