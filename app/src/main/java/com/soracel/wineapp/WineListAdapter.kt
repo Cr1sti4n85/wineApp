@@ -1,20 +1,26 @@
 package com.soracel.wineapp
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.soracel.wineapp.databinding.ItemWineBinding
 
 class WineListAdapter: ListAdapter<Wine, RecyclerView.ViewHolder>(WineDiff()) {
+
+    private lateinit var context: Context
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
     ): RecyclerView.ViewHolder {
-        return ViewHolder(LayoutInflater.from(parent.context)
+        context = parent.context
+        return ViewHolder(LayoutInflater.from(context)
             .inflate(R.layout.item_wine, parent, false))
     }
 
@@ -29,6 +35,12 @@ class WineListAdapter: ListAdapter<Wine, RecyclerView.ViewHolder>(WineDiff()) {
                 tvWinery.text = wine.winery
                 tvLocation.text = wine.location
                 rating.rating = wine.rating.average.toFloat()
+
+                Glide.with(context)
+                    .load(wine.image)
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    .centerCrop()
+                    .into(imgWine)
             }
         }
 
