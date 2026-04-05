@@ -9,6 +9,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import com.soracel.wineapp.databinding.ActivityMainBinding
 import kotlinx.coroutines.Dispatchers
@@ -18,7 +19,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import kotlin.random.Random
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), OnClickListener {
 
     private lateinit var adapter: WineListAdapter
     private lateinit var binding: ActivityMainBinding
@@ -44,6 +45,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupAdapter() {
         adapter = WineListAdapter()
+        adapter.setOnClickListener(this)
     }
 
     private fun setupRecyclerView() {
@@ -113,5 +115,22 @@ class MainActivity : AppCompatActivity() {
         super.onResume()
         showProgress(true)
         getWines()
+    }
+
+    /*OnClickListener implementation*/
+    override fun onLongClick(wine: Wine) {
+        val options = resources.getStringArray(R.array.array_dialog_add_options)
+        MaterialAlertDialogBuilder(this)
+            .setTitle(R.string.dialog_add_fav_title)
+            .setItems(options, ){_, index ->
+                when(index){
+                    0 -> addToFavorites(wine)
+                }
+            }
+            .show()
+    }
+
+    private fun addToFavorites(wine: Wine) {
+        showMsg(R.string.room_save_success)
     }
 }
