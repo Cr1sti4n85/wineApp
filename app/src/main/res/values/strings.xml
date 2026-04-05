@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">WineApp</string>
     <string name="text_no_data">Sin datos, intente más tarde</string>
+    <string name="common_string_failed">Error al cargar datos</string>
 </resources>
