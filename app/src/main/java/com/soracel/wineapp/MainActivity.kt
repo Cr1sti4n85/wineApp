@@ -131,6 +131,14 @@ class MainActivity : AppCompatActivity(), OnClickListener {
     }
 
     private fun addToFavorites(wine: Wine) {
-        showMsg(R.string.room_save_success)
+        lifecycleScope.launch(Dispatchers.IO) {
+            val id = WineApplication.database.wineDao().addWine(wine)
+            if (id != -1L) {
+                showMsg(R.string.room_save_success)
+            } else {
+                showMsg(R.string.room_save_fail)
+            }
+        }
+
     }
 }

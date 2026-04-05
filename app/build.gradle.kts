@@ -37,6 +37,7 @@ android {
         enable = true
     }
 }
+val roomVersion = "2.8.4"
 
 dependencies {
     implementation(libs.androidx.core.ktx)
@@ -47,7 +48,7 @@ dependencies {
 
     //GLIDE
     implementation(libs.glide)
-    ksp("com.github.bumptech.glide:ksp:5.0.5")
+    ksp(libs.glide.ksp)
 
     //RETROFIT
     implementation(libs.retrofit)
@@ -55,6 +56,10 @@ dependencies {
 
     //SWIPE REFRESH LAYOUT
     implementation(libs.androidx.swiperefreshlayout)
+
+    //ROOM
+    implementation(libs.androidx.room.runtime)
+    ksp(libs.androidx.room.compiler)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
