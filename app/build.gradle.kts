@@ -38,6 +38,7 @@ android {
     }
 }
 val roomVersion = "2.8.4"
+val nav_version = "2.9.7"
 
 dependencies {
     implementation(libs.androidx.core.ktx)
@@ -60,6 +61,10 @@ dependencies {
     //ROOM
     implementation(libs.androidx.room.runtime)
     ksp(libs.androidx.room.compiler)
+
+    // Views/Fragments integration
+    implementation(libs.androidx.navigation.fragment)
+    implementation(libs.androidx.navigation.ui)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
