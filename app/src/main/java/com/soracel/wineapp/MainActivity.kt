@@ -34,10 +34,16 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        val homeFragment = HomeFragment()
+//        val homeFragment = HomeFragment()
+//        supportFragmentManager
+//            .beginTransaction()
+//            .add(R.id.nav_host, homeFragment)
+//            .commit()
+
+        val favoriteFragment = FavoriteFragment()
         supportFragmentManager
             .beginTransaction()
-            .add(R.id.nav_host, homeFragment)
+            .add(R.id.nav_host, favoriteFragment)
             .commit()
 
     }
