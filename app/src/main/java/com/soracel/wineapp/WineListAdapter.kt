@@ -60,6 +60,11 @@ class WineListAdapter: ListAdapter<Wine, RecyclerView.ViewHolder>(WineDiff()) {
                 listener.onLongClick(wine)
                 true
             }
+
+            binding.root.setOnClickListener {
+                listener.onFavorite(wine)
+            }
+
         }
     }
 
