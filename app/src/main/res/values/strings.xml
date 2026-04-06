@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">WineApp</string>
     <string name="text_no_data">Sin datos, intente más tarde</string>
+    <string name="home_title">Home</string>
+    <string name="favorites_title">Favoritos</string>
     <string name="common_string_failed">Error al cargar datos</string>
     <string name="dialog_add_fav_title">¿Añadir a favoritos?</string>
     <string name="dialog_add_fav_option_add">Añadir</string>
